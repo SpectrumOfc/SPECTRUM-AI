@@ -171,7 +171,7 @@ const createAndSendMenu = async (message, { conn, usedPrefix, __dirname }) => {
     formattedMenuText = formattedMenuText.replace(new RegExp(`%(${Object.keys(replacements).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, key) => '' + replacements[key]);
 
     // Enviar mensaje y lista de opciones con una imagen en lugar de GIF
-    const imageUrl = 'https://drive.google.com/uc?export=view&id=1dz-jDgMvOQpLxNgvhBdjgafoyzML5D-L'; // URL de la imagen
+    const imageUrl = 'https://drive.google.com/uc?export=view&id=1nGesJvAWNYVFLj_cWemY43zz73Z0ybTb'; // URL de la imagen
     const optionsListMessage = [
       {
         title: '',
@@ -185,7 +185,7 @@ const createAndSendMenu = async (message, { conn, usedPrefix, __dirname }) => {
     ];
 
     await conn.sendMessage(message.chat, { image: { url: imageUrl }, caption: formattedMenuText.trim(), mentions: [message.sender] });
-    await conn.sendList(message.chat, '', null, `𝐎𝐏𝐂𝐈𝐎𝐍𝐄𝐒 | 𝐒𝐘𝐒𝐓𝐄𝐌 𝐗`, optionsListMessage, { mentions: [message.sender] });
+    await conn.sendList(message.chat, '', null, `𝐎𝐏𝐂𝐈𝐎𝐍𝐄𝐒 | 𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈`, optionsListMessage, { mentions: [message.sender] });
 
   } catch (error) {
     console.error('Error en el handler:', error.message); // Mensaje de error más claro
