@@ -85,7 +85,6 @@ let fkontak = { "key": { "participants":"0@s.whatsapp.net", "remoteJid": "status
 let menu = `*\`⌜ ＭＥＮＵ | ＣＯＭＰＬＥＴＯ ⌟\`*
 
 *\`╭━〔 𝐈𝐍𝐅𝐎 𝐃𝐄𝐋 𝐁𝐎𝐓 〕━╮\`*
-┃➔ *👑𝘿𝙚𝙫𝙚𝙡𝙤𝙥𝙚𝙧:* 𝐏𝐚𝐨𝐥𝐨 𝐱 𝐃𝐢𝐚𝐧𝐚
 ┃➔ *☑𝙑𝙚𝙧𝙨𝙞𝙤𝙣:* 1.0.0
 ┃➔ *⏰𝙏𝙞𝙚𝙢𝙥𝙤 𝙖𝙘𝙩𝙞𝙫𝙤:* ${uptime}
 ╰━━━━━━━━━━━━━━╯
@@ -207,14 +206,14 @@ let menu = `*\`⌜ ＭＥＮＵ | ＣＯＭＰＬＥＴＯ ⌟\`*
 ┃➔ 🔩 ${usedPrefix}qc
 ╰━━━━━━━━━━━━━━╯`.trim()
 //conn.sendFile(m.chat, pp, 'lp.jpg', menu, m, false, { contextInfo: { mentionedJid }})
-let img = await (await fetch(`https://th.bing.com/th/id/OIG3.2LhHLm6qxvavru3HsK_z?w=1024&h=1024&rs=1&pid=ImgDetMain`)).buffer()  
+let img = await (await fetch(`https://drive.google.com/uc?export=view&id=1nGesJvAWNYVFLj_cWemY43zz73Z0ybTb`)).buffer()  
 await conn.sendMessage(m.chat, {
 text: menu,
 contextInfo: { 
 mentionedJid: [m.sender],
 forwardingScore: 9, 
 externalAdReply: {
-title: 'ＳＹＳＴＥＭ  Ｘ',
+title: '𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈',
 //body: 'ᴅᴇᴠᴇʟᴏᴘᴇʀ: ʙᴇɴᴊᴀᴍɪɴ',
 thumbnail: img,
 sourceUrl: 'https://whatsapp.com/channel/0029VajUEsCB4hdNTg04zh1u',
