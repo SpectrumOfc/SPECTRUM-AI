@@ -1501,10 +1501,10 @@ global.dfail = (type, m, conn) => {
         private: `Hola @${m.sender.split`@`[0]}, este comando solo puede ser utilizado en mi Chat *Privado*.`,
         admin: `Hola @${m.sender.split`@`[0]}, este comando solo puede ser utilizado por los *Administradores* del Grupo.`,
         botAdmin: `Hola @${m.sender.split`@`[0]}, la bot debe ser *Administradora* para ejecutar este Comando.`,
-        unreg: `\`⌜ ＥＲＲＯＲ － ＲＥＧＩＳＴＲＯ ⌟\`\n👋🏻𝐒𝐚𝐥𝐮𝐝𝐨𝐬 𝐮𝐬𝐮𝐚𝐫𝐢𝐨 @${m.sender.split`@`[0]}\n𝐏𝐚𝐫𝐚 𝐞𝐥 𝐮𝐬𝐨 𝐝𝐞 𝐞𝐬𝐭𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨, 𝐩𝐨𝐫 𝐟𝐚𝐯𝐨𝐫 𝐫𝐞𝐪𝐮𝐢𝐞𝐫𝐨 𝐪𝐮𝐞 𝐭𝐞 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐞𝐬 𝐞𝐧 𝐦𝐢 𝐛𝐚𝐬𝐞 𝐝𝐞 𝐝𝐚𝐭𝐨𝐬.\n/𝐫𝐞𝐠 /𝐫𝐞𝐠 𝐍𝐨𝐦𝐛𝐫𝐞.𝐄𝐝𝐚𝐝 (𝐒𝐩𝐞𝐜𝐭𝐫𝐮𝐦.𝟏𝟖)`,
+        unreg: `*\`⌜ＥＲＲＯＲ－ＲＥＧＩＳＴＲＯ⌟\`*\n👋🏻𝐒𝐚𝐥𝐮𝐝𝐨𝐬 𝐮𝐬𝐮𝐚𝐫𝐢𝐨 @${m.sender.split`@`[0]}\n𝐏𝐚𝐫𝐚 𝐞𝐥 𝐮𝐬𝐨 𝐝𝐞 𝐞𝐬𝐭𝐞 𝐜𝐨𝐦𝐚𝐧𝐝𝐨, 𝐩𝐨𝐫 𝐟𝐚𝐯𝐨𝐫 𝐫𝐞𝐪𝐮𝐢𝐞𝐫𝐨 𝐪𝐮𝐞 𝐭𝐞 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐞𝐬 𝐞𝐧 𝐦𝐢 𝐛𝐚𝐬𝐞 𝐝𝐞 𝐝𝐚𝐭𝐨𝐬.\n/𝐫𝐞𝐠 𝐍𝐨𝐦𝐛𝐫𝐞.𝐄𝐝𝐚𝐝\n                       (𝐒𝐩𝐞𝐜𝐭𝐫𝐮𝐦.𝟏𝟖)`,
         restrict: `Hola @${m.sender.split`@`[0]}, esta caracterÃ­stica estÃ¡ *deshabilitada*`  
     }[type]
-    if (msg) return conn.sendMessage(m.chat, { text: msg, contextInfo: { mentionedJid: [m.sender], forwardingScore: 9999, isForwarded: true, externalAdReply: { title: '𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈', body: [wm, '𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈' + lb + '𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈', '𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈'].getRandom(), thumbnail: gataImg.getRandom(), sourceUrl: [md, nna, yt, nnn, nn, fb, ig].getRandom(), mediaType: 1}}}, { quoted: m }).then(_ => m.react('❌'))
+    if (msg) return conn.sendMessage(m.chat, { text: msg, contextInfo: { mentionedJid: [m.sender], forwardingScore: 9999, isForwarded: true, externalAdReply: { title: '𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈', body: [wm, '𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈' + lb + '', ''].getRandom(), thumbnail: gataImg.getRandom(), sourceUrl: [md, nna, yt, nnn, nn, fb, ig].getRandom(), mediaType: 1}}}, { quoted: m }).then(_ => m.react('❌'))
 }
 
 let file = global.__filename(import.meta.url, true)
