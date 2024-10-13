@@ -1,5 +1,3 @@
-// Ｃ Ｏ Ｄ Ｉ Ｇ Ｏ   Ａ Ｄ Ａ Ｐ Ｔ Ａ Ｄ Ｏ   Ｐ Ｏ Ｒ   Ｄ Ｅ Ｖ Ｅ Ｌ Ｏ Ｐ Ｅ Ｒ   Ｐ Ａ Ｏ Ｌ Ｏ   Ｘ
-
 import { createHash } from 'crypto'
 let Reg = /\|?(.*)([.|] *?)([0-9]*)$/i
 let handler = async function (m, { conn, text, usedPrefix, command }) {
@@ -25,16 +23,10 @@ global.db.data.users[m.sender].limit += 50
 global.db.data.users[m.sender].exp += 500
 global.db.data.users[m.sender].joincount += 20
   let sn = createHash('md5').update(m.sender).digest('hex')
-  await conn.reply(m.chat,  `*\`╭━〔 𝐑𝐄𝐆𝐈𝐒𝐓𝐑𝐎 〕━╮\`*
-┃➔ *👤𝐔𝐒𝐔𝐀𝐑𝐈𝐎:* ${name}
-┃➔ *✅𝐄𝐃𝐀𝐃:* ${age}
-╰━━━━━━━━━━━━━━╯
-┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-*\`╭━〔 𝐑𝐄𝐍𝐂𝐎𝐌𝐏𝐄𝐍𝐒𝐀𝐒 〕━╮\`*
-┃➔ 450 𝐄𝐗𝐏𝐄𝐑𝐈𝐄𝐍𝐂𝐈𝐀 📚
-┃➔ 2570 𝐒𝐘𝐒𝐓𝐄𝐌𝐂𝐎𝐈𝐍𝐒𝐗 🏴
-┃➔ 670 𝐃𝐈𝐀𝐌𝐀𝐍𝐓𝐄𝐒 💎
-╰━━━━━━━━━━━━━━╯`, m, {contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: 'ＲＥＧＩＳＴＲＯ',  body: 'ＳＹＳＴＥＭ Ｘ', previewType: 0, thumbnail: gataImg.getRandom(), sourceUrl: [md, nn, nna, fb].getRandom()}}})
+  await conn.reply(m.chat,  `\`╭━〔 ＢＡＳＥ ＤＥ ＤＡＴＯＳ 〕━╮\`
+┃ *👤𝐔𝐒𝐔𝐀𝐑𝐈𝐎:* ${name}
+┃ *✅𝐄𝐃𝐀𝐃:* ${age}
+╰━━━━━━━━━━━━━━╯`, m, {contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, title: '𝐑𝐄𝐆𝐈𝐒𝐓𝐑𝐎 - 𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈',  body: '𝐑𝐄𝐆𝐈𝐒𝐓𝐑𝐎 - 𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈', previewType: 0, thumbnail: gataImg.getRandom(), sourceUrl: [md, nn, nna, fb].getRandom()}}})
 await m.reply(`${sn}`)}
 handler.help = ['daftar', 'register'].map(v => v + ' <nama>.<umur>')
 handler.tags = ['xp']
