@@ -22,11 +22,11 @@ const rl = createInterface(process.stdin, process.stdout)
 //const app = express()
 //const port = process.env.PORT || 8080;
 
-say('SYSTEM\nX', {
+say('SPECTRUM AI', {
 font: 'chrome',
 align: 'center',
 gradient: ['red', 'magenta']})
-say(`Desarrollado por Paolo X`, {
+say(`+52 1 427 413 0309`, {
 font: 'console',
 align: 'center',
 gradient: ['red', 'magenta']});
@@ -76,21 +76,8 @@ try {
 const packageJsonData = await fsPromises.readFile(packageJsonPath, 'utf-8')
 const packageJsonObj = JSON.parse(packageJsonData)
 const currentTime = new Date().toLocaleString()
-let lineM = '⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ 》'
-console.log(chalk.yellow(`╭${lineM}
-┊${chalk.blueBright('╭┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')}
-┊${chalk.blueBright('┊')} ${chalk.blue.bold(`🌟 INFORMACIÓN :`)}
-┊${chalk.blueBright('┊')} ${chalk.blueBright('┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')} 
-┊${chalk.blueBright('┊')}${chalk.cyan(`🟢 Nombre: ${packageJsonObj.name}`)}
-┊${chalk.blueBright('┊')}${chalk.cyan(`𓃠 Versión: ${packageJsonObj.version}`)}
-┊${chalk.blueBright('┊')}${chalk.cyan(`🟣 Descripción: ${packageJsonObj.description}`)}
-┊${chalk.blueBright('┊')}${chalk.cyan(`🌻 Project Author: DanielDiod (@daniel)`)}
-┊${chalk.blueBright('┊')}${chalk.blueBright('┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')} 
-┊${chalk.blueBright('┊')}${chalk.yellow(`🔴 Colaboradores:`)}
-┊${chalk.blueBright('┊')}${chalk.yellow(`• Diego-YL-177 (Ofc Diego)`)}
-┊${chalk.blueBright('┊')}${chalk.yellow(`• AzamiJs (Alexis)`)}
-┊${chalk.blueBright('╰┅┅┅┅┅┅┅┅┅┅┅┅┅┅┅')} 
-╰${lineM}`));
+let lineM = 'I n i c i a n d o⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ ⋯ 》'
+console.log(chalk.yellow(`${lineM}`));
 setInterval(() => {}, 1000)
 } catch (err) {
 console.error(chalk.red(`❌ No se pudo leer el archivo package.json: ${err}`))
