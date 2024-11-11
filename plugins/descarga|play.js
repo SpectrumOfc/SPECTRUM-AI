@@ -3,7 +3,7 @@ import yts from 'yt-search';
 
 let handler = async (m, { conn, text, usedPrefix, command }) => {
 
-  if (!text) throw m.reply(`Ejemplo de uso: ${usedPrefix + command} Joji Ew`);
+  if (!text) throw m.reply(`🚨 𝐔𝐭𝐢𝐥𝐢𝐳𝐚 𝐧𝐮𝐞𝐯𝐚𝐦𝐞𝐧𝐭𝐞 𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨 𝐩𝐞𝐫𝐨 𝐚𝐜𝐨𝐦𝐩𝐚ñ𝐚𝐝𝐨 𝐝𝐞𝐥 𝐭í𝐭𝐮𝐥𝐨 𝐝𝐞 𝐥𝐚 𝐦ú𝐬𝐢𝐜𝐚 𝐪𝐮𝐞 𝐝𝐞𝐬𝐞𝐚𝐬 𝐝𝐞𝐬𝐜𝐚𝐫𝐠𝐚𝐫.`);
   
     let results = await yts(text);
     let tes = results.all[0]
