@@ -10,11 +10,11 @@ import moment from 'moment-timezone';
 global.botnumber = ""
 
 global.owner = [
-  ['5214274130309', '𝘾𝙧𝙚𝙖𝙙𝙤𝙧 🔮', true],
-  ['51939249284', '𝘾𝙤𝙡𝙖𝙗...🔮', true],
-  ['', '', true],
-  ['', '', true],
-  ['', '', true],
+  ['5214274130309', '𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈 👑', true],
+  ['5214274130309', '𝐕𝐄𝐍𝐓𝐀𝐒 𝐕𝐄𝐑𝐈𝐅𝐈𝐂𝐀𝐃𝐎 ✅', true],
+  ['522731307252', '𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈 - 𝟐', true],
+  ['573235515945', '𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈 - 𝟑', true],
+  ['51964661950', '𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈 - 𝟒', true],
   ['', '', true],
   ['', '', true],
   ['', '', false],
@@ -32,16 +32,16 @@ global.owner = [
   ['']
 ];
 
-global.suittag = ['59168683798'];
-global.prems = ['59168683798'];
+global.suittag = ['5214274130309'];
+global.prems = ['5214274130309'];
 
-global.packname = '𝙓𝙄𝘼 𝘽𝙊𝙏 𝙋𝙍𝙊';
-global.author = '𝙓𝙄𝘼 𝘽𝙊𝙏 𝙋𝙍𝙊';
-global.wm = '𝙓𝙄𝘼 𝘽𝙊𝙏 𝙋𝙍𝙊';
-global.titulowm = '𝙓𝙄𝘼 𝘽𝙊𝙏 𝙋𝙍𝙊';
-global.titulowm2 = `𝙓𝙄𝘼 𝘽𝙊𝙏 𝙋𝙍𝙊`
-global.igfg = '𝙓𝙄𝘼 𝘽𝙊𝙏 𝙋𝙍𝙊';
-global.wait = '𝘾𝙖𝙧𝙜𝙖𝙣𝙙𝙤... 🔮';
+global.packname = '𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈 👑';
+global.author = '𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈 👑';
+global.wm = '𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈 👑';
+global.titulowm = '𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈 👑';
+global.titulowm2 = `𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈 👑`
+global.igfg = '𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈 👑';
+global.wait = '𝘾𝙖𝙧𝙜𝙖𝙣𝙙𝙤...';
 
 global.imagen1 = fs.readFileSync('./Menu2.jpg');
 global.imagen2 = fs.readFileSync('./src/nuevobot.jpg');
@@ -61,18 +61,18 @@ global.mes = d.toLocaleDateString('es', {month: 'long'});
 global.año = d.toLocaleDateString('es', {year: 'numeric'});
 global.tiempo = d.toLocaleString('en-US', {hour: 'numeric', minute: 'numeric', second: 'numeric', hour12: true});
 //* ****************************
-global.wm2 = `▸ ${dia} ${fecha}\n▸ XiaBot`;
-global.gt = '𝙓𝙄𝘼 𝘽𝙊𝙏 𝙋𝙍𝙊';
-global.mysticbot = '𝙓𝙄𝘼 𝘽𝙊𝙏 𝙋𝙍𝙊';
-global.md = 'https://chat.whatsapp.com/LcFTUnvu0Tw1tCnA2ybdR6';
-global.mysticbot = 'https://chat.whatsapp.com/LcFTUnvu0Tw1tCnA2ybdR6';
-global.canalbot = 'https://whatsapp.com/channel/0029VaJxgcB0bIdvuOwKTM2Y';
-global.ig = 'https://www.instagram.com/usxr_angelito';
-global.github = 'https://github.com/Karim-off/XiaBot-Pro';
-global.gtb = 'https://github.com/Karim-off';
-global.waitt = '𝘾𝙖𝙧𝙜𝙖𝙣𝙙𝙤... 🔮';
-global.waittt = '𝘾𝙖𝙧𝙜𝙖𝙣𝙙𝙤... 🔮';
-global.waitttt = '𝘾𝙖𝙧𝙜𝙖𝙣𝙙𝙤... 🔮';
+global.wm2 = `▸ ${dia} ${fecha}\n▸ 𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈 👑`;
+global.gt = '𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈 👑';
+global.mysticbot = '𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈 👑';
+global.md = 'https://whatsapp.com/channel/0029VajUEsCB4hdNTg04zh1u';
+global.mysticbot = 'https://whatsapp.com/channel/0029VajUEsCB4hdNTg04zh1u';
+global.canalbot = 'https://whatsapp.com/channel/0029VajUEsCB4hdNTg04zh1u';
+global.ig = 'https://www.instagram.com/';
+global.github = 'https://github.com/SpectrumOfc/SPECTRUM-AI.git';
+global.gtb = 'https://github.com/SpectrumOfc';
+global.waitt = '𝘾𝙖𝙧𝙜𝙖𝙣𝙙𝙤...';
+global.waittt = '𝘾𝙖𝙧𝙜𝙖𝙣𝙙𝙤...';
+global.waitttt = '𝘾𝙖𝙧𝙜𝙖𝙣𝙙𝙤...';
 global.nomorown = '59168683798';
 global.pdoc = ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/vnd.ms-excel', 'application/msword', 'application/pdf', 'text/rtf'];
 global.cmenut = '❖––––––『';
