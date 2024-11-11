@@ -1,10 +1,3 @@
-/*
-
-- PLUGIN PLAY YOUTUBE
-- By Kenisawa
-
-*/
-
 import axios from 'axios';
 import yts from 'yt-search';
 
@@ -77,7 +70,7 @@ const cukaDownloader = {
 let dataos = await cukaDownloader.youtube(tes.url, "mp3")
 console.log(dataos)
 let { title, thumbnail, quality, downloadUrl } = dataos
-  m.reply(`_✧ Enviando ${title} (${quality})_\n\n> ${tes.url}`)
+  m.reply(`_✧ ENVIANDO ${title} (${quality})_\n\n> ${tes.url}`)
       const doc = {
       audio: { url: downloadUrl },
       mimetype: 'audio/mp4',
