@@ -312,10 +312,10 @@ async function connectionUpdate(update) {
   }
   if (global.db.data == null) loadDatabase();
   if (update.qr != 0 && update.qr != undefined) {
-    console.log(chalk.yellow('🔮ㅤXiaBot te pide que escanees este codigo QR, porque expira en 60 segundos.'));
+    console.log(chalk.yellow('𝐄𝐒𝐂𝐀𝐍𝐄𝐀 𝐄𝐋 𝐒𝐈𝐆𝐔𝐈𝐄𝐍𝐓𝐄 𝐂Ó𝐃𝐈𝐆𝐎 𝐐𝐑 𝐏𝐀𝐑𝐀 𝐐𝐔𝐄 𝐏𝐔𝐄𝐃𝐀𝐒 𝐕𝐈𝐍𝐂𝐔𝐋𝐀𝐑𝐓𝐄 𝐘 𝐔𝐓𝐈𝐋𝐈𝐙𝐀𝐑 𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈.'));
   }
   if (connection == 'open') {
-    console.log(chalk.yellow('▣──────────────────────────────···\n│\n│❧ 𝙲𝙾𝙽𝙴𝙲𝚃𝙰𝙳𝙾 𝙲𝙾𝚁𝚁𝙴𝙲𝚃𝙰𝙼𝙴𝙽𝚃𝙴 𝙰𝙻 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 ✅\n│\n▣──────────────────────────────···'));
+    console.log(chalk.yellow('▣──────────────────────────────···\n│\n│❧ 𝐕𝐈𝐍𝐂𝐔𝐋𝐀𝐂𝐈Ó𝐍 𝐄𝐗𝐈𝐓𝐎𝐒𝐀 𝐂𝐎𝐍 𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈. ✅\n│\n▣──────────────────────────────···'));
   }
 let reason = new Boom(lastDisconnect?.error)?.output?.statusCode;
 if (connection === 'close') {
@@ -541,7 +541,7 @@ setInterval(async () => {
   if (stopped === 'close' || !conn || !conn.user) return;
   const _uptime = process.uptime() * 1000;
   const uptime = clockString(_uptime);
-  const bio = `🚀 𝙓𝙄𝘼 𝘽𝙊𝙏 𝙋𝙍𝙊 ⣿  🔮 𝙈𝙖𝙭𝙞𝙢𝙪𝙣 𝙋𝙤𝙬𝙚𝙧 𝙊𝙉𝙇𝙄𝙉𝙀 𝘿𝙪𝙧𝙖𝙣𝙩𝙚 ${uptime}`;
+  const bio = `𝐂𝐔𝐄𝐍𝐓𝐀 𝐕𝐄𝐑𝐈𝐅𝐈𝐂𝐀𝐃𝐀 ✅ | 𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈 👑`;
   await conn.updateProfileStatus(bio).catch((_) => _);
 }, 60000);
 function clockString(ms) {
