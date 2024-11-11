@@ -3,8 +3,8 @@ import fg from 'api-dylux'
 import { youtubedl, youtubedlv2 } from '@bochilteam/scraper'
 let limit = 350 
 let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) => {
-        if (!args || !args[0]) throw `✳️ Ejemplo :\n${usedPrefix + command} https://youtu.be/YzkTFFwxtXI`
-    if (!args[0].match(/youtu/gi)) throw `❎ Verifica que el link de YouTube`
+        if (!args || !args[0]) throw `˜”*°• 𝐘𝐓𝐌𝐏𝟒 •°*”˜\n🚨 𝐔𝐬𝐚 𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨 𝐧𝐮𝐞𝐯𝐚𝐦𝐞𝐧𝐭𝐞 𝐩𝐞𝐫𝐨 𝐝𝐞 𝐥𝐚 𝐦𝐚𝐧𝐞𝐫𝐚 𝐜𝐨𝐫𝐫𝐞𝐜𝐭𝐚.\n\n✅ 𝐄𝐉𝐄𝐌𝐏𝐋𝐎:\n.𝐲𝐭𝐦𝐩𝟒 (𝐞𝐧𝐥𝐚𝐜𝐞 𝐝𝐞 𝐲𝐨𝐮𝐭𝐮𝐛𝐞)`
+    if (!args[0].match(/youtu/gi)) throw `🚨 𝐄𝐥 𝐥𝐢𝐧𝐤 𝐝𝐞 𝐘𝐨𝐮𝐓𝐮𝐛𝐞 𝐞𝐬 𝐢𝐧𝐜𝐨𝐫𝐫𝐞𝐜𝐭𝐨.`
          let chat = global.db.data.chats[m.chat]
          m.react(rwait) 
         try {
