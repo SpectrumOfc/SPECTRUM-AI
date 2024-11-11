@@ -70,7 +70,7 @@ const cukaDownloader = {
 let dataos = await cukaDownloader.youtube(tes.url, "mp3")
 console.log(dataos)
 let { title, thumbnail, quality, downloadUrl } = dataos
-  m.reply(`_✧ ENVIANDO ${title} (${quality})_\n\n> ${tes.url}`)
+  m.reply(`𝐏𝐋𝐀𝐘 | 𝐒𝐏𝐄𝐂𝐓𝐑𝐔𝐌 𝐀𝐈\n\n𝐓𝐈𝐓𝐔𝐋𝐎: *${title} (${quality})*\n𝐔𝐑𝐋: *${tes.url}*`)
       const doc = {
       audio: { url: downloadUrl },
       mimetype: 'audio/mp4',
