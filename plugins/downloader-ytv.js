@@ -7,7 +7,6 @@ let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) =
     if (!args[0].match(/youtu/gi)) throw `❎ Verifica que el link de YouTube`;
 
     let chat = global.db.data.chats[m.chat];
-    m.react('⏳'); // Emoji de espera
 
     try {
         let q = args[1] || '360p';
@@ -29,8 +28,6 @@ let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) =
 ▢ *🎞️Calidad* : ${q}
 ▢ *⚖️Peso* : ${size}
 `.trim(), m, false, { asDocument: chat.useDocument });
-        
-        m.react('✅'); // Emoji para indicar que ha terminado
 
     } catch {        
         m.reply(`✳️ Error al descargar el video intenta con otro`); 
