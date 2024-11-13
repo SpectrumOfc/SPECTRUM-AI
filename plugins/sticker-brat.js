@@ -6,7 +6,7 @@ const handler = async (m, { conn, args, text, usedPrefix, command }) => {
     let messageText = text || (m.quoted && (m.quoted.text || m.quoted.caption || m.quoted.description)) || '';
     
     if (!messageText) {
-        m.reply(`*• Ejemplo:* ${usedPrefix + command} *[texto]*`);
+        m.reply(`˜”*°• 𝐒𝐓𝐈𝐂𝐊𝐄𝐑 | 𝐁𝐑𝐀𝐓 •°*”˜\n🚨 𝐔𝐬𝐚 𝐞𝐥 𝐜𝐨𝐦𝐚𝐧𝐝𝐨 𝐧𝐮𝐞𝐯𝐚𝐦𝐞𝐧𝐭𝐞 𝐩𝐞𝐫𝐨 𝐝𝐞 𝐥𝐚 𝐦𝐚𝐧𝐞𝐫𝐚 𝐜𝐨𝐫𝐫𝐞𝐜𝐭𝐚.\n\n✅ 𝐄𝐉𝐄𝐌𝐏𝐋𝐎:\n.𝐛𝐫𝐚𝐭 (𝐭𝐞𝐱𝐭𝐨)`);
         return;
     }
 
