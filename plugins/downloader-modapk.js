@@ -9,9 +9,7 @@ let texto = `♫♪♩·.¸¸.· 𝐃𝐎𝐖𝐍𝐋𝐎𝐀𝐃𝐄𝐑 | 𝐀
      📩 𝐍𝐨𝐦𝐛𝐫𝐞: ${name}
      ⚖️ 𝐏𝐞𝐬𝐨: ${size}
      📦 𝐏𝐚𝐜𝐤𝐚𝐠𝐞: ${packe}
-     🗓️ 𝐏𝐮𝐛𝐥𝐢𝐜𝐚𝐝𝐨: ${lastUpdate}
-    
-🍭 Enviando archivo por favor espere suelo ser lenta..`
+     🗓️ 𝐏𝐮𝐛𝐥𝐢𝐜𝐚𝐝𝐨: ${lastUpdate}`
 await conn.sendFile(m.chat, icon, name + '.jpg', texto, m)
 
 await conn.sendMessage(m.chat, { document: { url: URL }, mimetype: 'application/vnd.android.package-archive', fileName: name + '.apk', caption: ''}, { quoted: m });
