@@ -1,9 +1,3 @@
-// Creditos del codigo a @usxr_angelito //
-
-/* GitHub: https://github.com/karim-off*/
-
-/* Bot: https://github.com/karim-off/XiaBot-Pro*/
-
 import {WAMessageStubType} from '@whiskeysockets/baileys';
 import fetch from 'node-fetch';
 
