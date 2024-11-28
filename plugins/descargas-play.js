@@ -1,43 +1,21 @@
-import ytdl from 'ytdl-core';
-import yts from 'yt-search';
+import yt_dlp
 
-const handler = async (m, { conn, text, usedPrefix, command }) => {
-  try {
-    if (!text) throw `Uso correcto: ${usedPrefix + command} <título del audio>`;
-    
-    const searchResults = await yts(text);
-    const video = searchResults.videos[0];
-    if (!video) throw 'No se encontraron resultados para tu búsqueda.';
+def download_audio(url):
+    # Definir las opciones para descargar solo el audio en formato MP3
+    ydl_opts = {
+        'format': 'bestaudio/best',  # Mejor calidad de audio
+        'postprocessors': [{
+            'key': 'FFmpegAudioConvertor',  # Convertir el audio a MP3
+            'preferredcodec': 'mp3',
+            'preferredquality': '192',  # Calidad de 192 kbps
+        }],
+        'outtmpl': '%(title)s.%(ext)s',  # Guardar el archivo con el nombre del video
+    }
 
-    const audioStream = ytdl(video.url, { filter: 'audioonly' });
+    # Descargar el archivo usando yt-dlp
+    with yt_dlp.YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])  # Descargar el contenido desde la URL
 
-    await conn.sendMessage(
-      m.chat,
-      {
-        audio: audioStream,
-        mimetype: 'audio/mpeg',
-        fileName: `${video.title}.mp3`,
-        contextInfo: {
-          externalAdReply: {
-            title: video.title,
-            body: 'Audio descargado desde YouTube',
-            mediaUrl: video.url,
-            sourceUrl: video.url,
-          },
-        },
-      },
-      { quoted: m }
-    );
-
-    m.reply(`🎵 Enviando el audio: *${video.title}*`);
-  } catch (error) {
-    console.error(error);
-    m.reply(`❌ Error: ${error.message || error}`);
-  }
-};
-
-handler.help = ['play'];
-handler.tags = ['downloader'];
-handler.command = /^(play|song)$/i;
-
-export default handler;
+# Ejemplo de uso
+url_video = 'https://www.youtube.com/watch?v=VIDEO_ID'
+download_audio(url_video)
