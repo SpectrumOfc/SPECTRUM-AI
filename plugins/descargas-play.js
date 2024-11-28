@@ -3,7 +3,8 @@
 - PLUGIN PLAY YOUTUBE 2
 - By Kenisawa
 
-*/import yts from "yt-search"
+*/ 
+import yts from "yt-search"
 import _ from "lodash"
 
 let handler = async (m, { conn, command, usedPrefix, args }) => {
@@ -39,8 +40,17 @@ let handler = async (m, { conn, command, usedPrefix, args }) => {
   await conn.reply(m.chat, captvid, m, infoReply)
   infoReply.contextInfo.externalAdReply.body = `Audio descargado con éxito`
 
+  // Llamada a la API para descargar el audio
   const res = await fetch(`https://api.zenkey.my.id/api/download/ytmp3?apikey=zenkey&url=${url}`)
+  
+  // Manejo de errores en la respuesta de la API
+  if (!res.ok) {
+    console.error("Error en la respuesta de la API:", res.statusText)
+    return await m.reply("Error al descargar el audio.")
+  }
+
   const audioData = await res.json()
+  console.log(audioData) // Para ver la respuesta de la API
   
   if (audioData.status && audioData.result?.downloadUrl) {
     await conn.sendMessage(m.chat, {
