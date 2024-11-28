@@ -1,42 +1,53 @@
-let dataos = await cukaDownloader.youtube(tes.url, 'mp3');
-console.log('Respuesta del API:', dataos);
+import axios from 'axios';
+import yts from 'yt-search';
 
-if (!dataos || !dataos.downloadUrl) {
-    throw new Error("Error en la respuesta del API. Verifica la URL o el formato solicitado.");
-}
+const handler = async (m, { conn, text, usedPrefix, command }) => {
+  try {
+    // Validar que el usuario proporcione un título
+    if (!text) throw `Uso correcto: ${usedPrefix + command} <título del audio>`;
+    
+    // Buscar en YouTube
+    const searchResults = await yts(text);
+    const video = searchResults.videos[0]; // Tomar el primer resultado
 
-let { title, thumbnail, quality, downloadUrl } = dataos;
+    if (!video) throw 'No se encontraron resultados para tu búsqueda.';
 
-m.reply(`_✧ Enviando ${title} (${quality})_\n\n> ${tes.url}`);
+    const downloadUrl = `https://api.example.com/download/audio?url=${encodeURIComponent(video.url)}`; // Cambia la API por una funcional
+    const response = await axios.get(downloadUrl);
 
-// Validar el thumbnail
-if (!thumbnail || !thumbnail.startsWith('http')) {
-    console.warn("El thumbnail no es válido. Usando un thumbnail predeterminado.");
-    thumbnail = 'https://example.com/default-thumbnail.jpg'; // Reemplaza con un thumbnail predeterminado
-}
+    if (!response.data.success) throw 'No se pudo descargar el audio.';
 
-let file;
-try {
-    file = await conn.getFile(thumbnail);
-} catch (error) {
-    console.error("Error al obtener el archivo del thumbnail:", error);
-    file = { data: null }; // Usar un valor nulo si falla
-}
+    // Enviar el audio al usuario
+    const { title, audioUrl } = response.data;
 
-const doc = {
-    audio: { url: downloadUrl },
-    mimetype: 'audio/mp4',
-    fileName: `${title}.mp3`,
-    contextInfo: {
-        externalAdReply: {
-            showAdAttribution: true,
-            mediaType: 2,
-            mediaUrl: tes.url,
+    await conn.sendMessage(
+      m.chat,
+      {
+        audio: { url: audioUrl },
+        mimetype: 'audio/mpeg',
+        fileName: `${title}.mp3`,
+        contextInfo: {
+          externalAdReply: {
             title: title,
-            sourceUrl: tes.url,
-            thumbnail: file.data || null, // Manejar nulo si `file.data` no está disponible
+            body: 'Audio descargado desde YouTube',
+            mediaUrl: video.url,
+            sourceUrl: video.url,
+          },
         },
-    },
+      },
+      { quoted: m }
+    );
+
+    m.reply(`🎵 Enviando el audio: *${title}*`);
+  } catch (error) {
+    console.error(error);
+    m.reply(`❌ Error: ${error.message || error}`);
+  }
 };
 
-await conn.sendMessage(m.chat, doc, { quoted: m });
+// Configuración del comando
+handler.help = ['play'];
+handler.tags = ['downloader'];
+handler.command = /^(play|song)$/i;
+
+export default handler;
