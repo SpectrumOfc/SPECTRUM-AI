@@ -1,34 +1,25 @@
-import axios from 'axios';
+import ytdl from 'ytdl-core';
 import yts from 'yt-search';
 
 const handler = async (m, { conn, text, usedPrefix, command }) => {
   try {
-    // Validar que el usuario proporcione un título
     if (!text) throw `Uso correcto: ${usedPrefix + command} <título del audio>`;
     
-    // Buscar en YouTube
     const searchResults = await yts(text);
-    const video = searchResults.videos[0]; // Tomar el primer resultado
-
+    const video = searchResults.videos[0];
     if (!video) throw 'No se encontraron resultados para tu búsqueda.';
 
-    const downloadUrl = `https://api.example.com/download/audio?url=${encodeURIComponent(video.url)}`; // Cambia la API por una funcional
-    const response = await axios.get(downloadUrl);
-
-    if (!response.data.success) throw 'No se pudo descargar el audio.';
-
-    // Enviar el audio al usuario
-    const { title, audioUrl } = response.data;
+    const audioStream = ytdl(video.url, { filter: 'audioonly' });
 
     await conn.sendMessage(
       m.chat,
       {
-        audio: { url: audioUrl },
+        audio: audioStream,
         mimetype: 'audio/mpeg',
-        fileName: `${title}.mp3`,
+        fileName: `${video.title}.mp3`,
         contextInfo: {
           externalAdReply: {
-            title: title,
+            title: video.title,
             body: 'Audio descargado desde YouTube',
             mediaUrl: video.url,
             sourceUrl: video.url,
@@ -38,14 +29,13 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
       { quoted: m }
     );
 
-    m.reply(`🎵 Enviando el audio: *${title}*`);
+    m.reply(`🎵 Enviando el audio: *${video.title}*`);
   } catch (error) {
     console.error(error);
     m.reply(`❌ Error: ${error.message || error}`);
   }
 };
 
-// Configuración del comando
 handler.help = ['play'];
 handler.tags = ['downloader'];
 handler.command = /^(play|song)$/i;
