@@ -1,130 +1,102 @@
+/*
+
+- PLUGIN PLAY YOUTUBE
+- By Kenisawa
+
+*/
+
+import axios from 'axios';
 import yts from 'yt-search';
-const handler = async (m, { conn, text, usedPrefix, command }) => {
-  if (!text) throw `\`\`\`mantenimiento\`\`\``;
 
-  const isVideo = /vid$/.test(command);
-  const search = await yts(text);
+let handler = async (m, { conn, text, usedPrefix, command }) => {
 
-  if (!search.all || search.all.length === 0) {
-    throw "No se encontraron resultados para tu búsqueda.";
-  }
+  if (!text) throw m.reply(`Ejemplo de uso: ${usedPrefix + command} Joji Ew`);
+  
+    let results = await yts(text);
+    let tes = results.all[0]
+    
+const baseUrl = 'https://cuka.rfivecode.com';
+const cukaDownloader = {
+  youtube: async (url, exct) => {
+    const format = [ 'mp3', 'mp4' ];
+    try {
+      const response = await fetch(`${baseUrl}/download`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+          body: JSON.stringify({ url, format: exct })
+      });
 
-  const videoInfo = search.all[0];
-  const body = `\`\`\`⊜─⌈ 📻 ◜YouTube Play◞ 📻 ⌋─⊜
-
-    ≡ Título : » ${videoInfo.title}
-    ≡ Views : » ${videoInfo.views}
-    ≡ Duration : » ${videoInfo.timestamp}
-    ≡ Uploaded : » ${videoInfo.ago}
-    ≡ URL : » ${videoInfo.url}
-
-# 🌴 Su ${isVideo ? 'Video' : 'Audio'} se está enviando, espere un momento...\`\`\``;
-
-  conn.sendMessage(m.chat, {
-    image: { url: videoInfo.thumbnail },
-    caption: body,
-  }, { quoted: fkontak });
-
-  let result;
-  try {
-    if (command === 'play') {
-      result = await mp3(videoInfo.url);
-    } else if (command === 'playvid') {
-      result = await mp4(videoInfo.url);
-    } else {
-      throw "Comando no reconocido.";
+      const data = await response.json();
+      return data;
+      console.log('Data:' + data);
+    } catch (error) {
+      return { success: false, message: error.message };
+      console.error('Error:', error);
     }
+  },
+  tiktok: async (url) => {
+    try {
+      const response = await fetch(`${baseUrl}/tiktok/download`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+          body: JSON.stringify({ url })
+      });
 
-    if (!result.status) throw result.msg;
+      const data = await response.json();
+      return data;
+      console.log('Data:' + data);
+    } catch (error) {
+      return { success: false, message: error.message };
+      console.error('Error:', error);
+    }
+  },
+  spotify: async (url) => {
+    try {
+      const response = await fetch(`${baseUrl}/spotify/download`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+          body: JSON.stringify({ url })
+      });
 
-    conn.sendMessage(m.chat, {
-      [isVideo ? 'video' : 'audio']: { url: result.media },
-      mimetype: isVideo ? "video/mp4" : "audio/mpeg",
-      caption: `Título: ${result.title}\nURL: ${result.url}`,
-    }, { quoted: m });
-
-  } catch (error) {
-    throw error.msg || "Ocurrió un error al procesar tu solicitud.";
+      const data = await response.json();
+      return data;
+      console.log('Data:' + data);
+    } catch (error) {
+      return { success: false, message: error.message };
+      console.error('Error:', error);
+    }
   }
-};
+}
 
-handler.command = ['play', 'playvid'];
-handler.help = ['play', 'playvid'];
-handler.tags = ['dl'];
-handler.diamond = 4;
+let dataos = await cukaDownloader.youtube(tes.url, "mp3")
+console.log(dataos)
+let { title, thumbnail, quality, downloadUrl } = dataos
+  m.reply(`_✧ Enviando ${title} (${quality})_\n\n> ${tes.url}`)
+      const doc = {
+      audio: { url: downloadUrl },
+      mimetype: 'audio/mp4',
+      fileName: `${title}.mp3`,
+      contextInfo: {
+        externalAdReply: {
+          showAdAttribution: true,
+          mediaType: 2,
+          mediaUrl: tes.url,
+          title: title,
+          sourceUrl: tes.url,
+          thumbnail: await (await conn.getFile(thumbnail)).data
+        }
+      }
+    };
+    await conn.sendMessage(m.chat, doc, { quoted: m });
+}
+handler.help = ['play'];
+handler.tags = ['downloader'];
+handler.command = /^(play|song)$/i;
 
 export default handler;
-
-const getVideoId = (url) => {
-  const regex = /(?:v=|\/)([0-9A-Za-z_-]{11}).*/;
-  const match = url.match(regex);
-  if (match) {
-    return match[1];
-  }
-  throw new Error("Invalid YouTube URL");
-};
-
-async function acc(url) {
-  const respuesta = await axios.get(`http://tinyurl.com/api-create.php?url=${url}`);
-  return respuesta.data;
-}
-
-async function mp3(url, { quality = '192' } = {}) {
-  try {
-    const videoId = getVideoId(url);
-    const { videos } = await yts(videoId);
-    const videoData = videos[0];
-
-    const data = new URLSearchParams({ videoid: videoId, downtype: 'mp3', vquality: quality });
-    const response = await axios.post('https://api-cdn.saveservall.xyz/ajax-v2.php', data, {
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-    });
-
-    const mp3Link = response.data.url;
-    return {
-      status: true,
-      creator: "Zero",
-      msg: "¡Descarga de contenido con éxito!",
-      title: videoData.title,
-      thumbnail: videoData.image,
-      url: `https://youtu.be/${videoId}`,
-      media: await acc(mp3Link),
-    };
-  } catch (error) {
-    return {
-      status: false,
-      msg: "¡Error al recuperar datos!",
-      err: error.message,
-    };
-  }
-}
-
-async function mp4(url, { quality = '480' } = {}) {
-  try {
-    const videoId = getVideoId(url);
-    const { videos } = await yts(videoId);
-    const videoData = videos[0];
-
-    const data = new URLSearchParams({ videoid: videoData.videoId, downtype: 'mp4', vquality: quality });
-    const response = await axios.post('https://api-cdn.saveservall.xyz/ajax-v2.php', data, {
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' },
-    });
-
-    const mp4Link = response.data.url;
-    return {
-      status: true,
-      creator: "I'm Fz ~",
-      msg: "¡Descarga de contenido con éxito!",
-      title: videoData.title,
-      thumbnail: videoData.image,
-      url: `https://youtu.be/${videoId}`,
-      media: await acc(mp4Link),
-    };
-  } catch (error) {
-    return {
-      status: false,
-      msg: "¡Error al recuperar datos!",
-      err: error.message,
-    };
-  }
-}
